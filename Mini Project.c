@@ -13,6 +13,7 @@ void pkb();
 void phr();
 void pht();
 void hasil_akhir();
+void gaji_tahun();
 
 
 int main(){
@@ -144,3 +145,7 @@ system("cls");
 return;
 }
 
+void gaji_tahun(int gaji){
+	return gaji*12;
+}
+	
