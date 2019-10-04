@@ -148,7 +148,7 @@ return;
 void gaji_tahun(int gaji){
 	return gaji*12;
 }
-	
+
 void ppn(){
 	int peng;
 	char pajakpn[50];
@@ -315,5 +315,41 @@ void phr(){
 
 	printf("\nBayar Pajak Hotel dan Restaurant : %d\n", peng);
 	system("pause");
+	system("pause");
+	system("cls");
+	return;
+}
+
+void pbb(){
+	int bangunan;
+	int tanah;
+	int nilai_tanah;
+	int nilai_bangunan;
+	int njop;
+	int njkp;
+	int pajakbb;
+	char pbb[50];
+	
+	printf("Menghitung PBB\n\n\n");
+
+	printf("\nMasukan luas bangunan : ");
+	scanf("%d", &bangunan);
+	printf("\nNilai Bangunan : ");
+	scanf("%d", &nilai_bangunan);
+	printf("\nMasukan luas tanah : ");
+	scanf("%d", &tanah);
+	printf("\nMasukan Nilai Tanah : ");
+	scanf("%d", &nilai_tanah);
+	
+	njop = (bangunan*nilai_bangunan)+(tanah*nilai_tanah);
+	njkp = 0.2*njop;
+	pajakbb = 0.005*njkp;
+	gets(pbb);
+
+	
+	printf("Pajak yang dibayarkan : %d", pajakbb);
+	
+	system("pause");
+	system("cls");
 	return;
 }
