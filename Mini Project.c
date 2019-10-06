@@ -167,6 +167,7 @@ void ppn(){
 	
 	printf("\nBayar PPn : %d\n", peng);
 	system("pause");
+	system("cls");
 	return;
 }
 
@@ -314,7 +315,6 @@ void phr(){
 	gets(phr);
 
 	printf("\nBayar Pajak Hotel dan Restaurant : %d\n", peng);
-	system("pause");
 	system("pause");
 	system("cls");
 	return;
