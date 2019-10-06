@@ -212,18 +212,24 @@ void ppnbm(){
 
 
 void sepuluh(){
-	int peng;
+		int peng;
+	int total;
+	int pajakpnbm;
 	char pajakpnbm[50];
 	
 	printf("Masukan pengeluaran : ");
 	scanf("%d", &peng);
 	if(peng>5000000){
-		peng = peng-peng*0.1;
-		gets(pajakpnbm);
+		pajakpnbm= peng-peng*0.1;
+		
 	}
 	else{
 		peng=0;
 		}
+	
+	
+	total = peng+pajakpnbm;
+	gets(ppengnbm);
 	
 	printf("\nBayar PPn : %d\n", peng);
 	system("pause");
