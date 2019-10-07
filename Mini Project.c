@@ -1,23 +1,23 @@
 #include <stdio.h>
 #include <math.h>
-#include<string.h>
-#include<stdlib.h>
-#include<windows.h>
+#include <string.h>
+#include <stdlib.h>
+#include <windows.h>
 
 void data_diri();
-void pph();
+int pph();
 void pbb();
 void ppnbm();
 void ppn();
-void pkb();
+int pkb();
 void phr();
-void pht();
-void hasil_akhir();
-void gaji_tahun();
+int pht();
+
+
 
 
 int main(){
-	system("Color 30");
+	system("Color 70");
 	mulai();
 	return 0;
 }
@@ -45,8 +45,7 @@ void menu(){
 		printf("\n6. Menghitung Pajak Kendaraan Bermotor");
 		printf("\n7. Menhitung Pajak Restoran dan Hotel");
 		printf("\n8. Menghitung Pajak Hiburan dan Tonton");
-		printf("\n9. Hasil Akhir Pajak yang dibayarkan");
-		printf("\n10. Exit");
+		printf("\n9. Exit");
 		printf("\n\n\n Enter Number: \n");
 		scanf("%d", &option);
 		system("cls");
@@ -54,44 +53,31 @@ void menu(){
 			case 1:
 			data_diri();
 			break;
-			
 			case 2:
 			pph();
 			break;
-			
 			case 3:
 			ppn();
 			break;
-			
 			case 4:
 			ppnbm();
 			break;
-			
 			case 5:
 			pbb();
 			break;
-			
 			case 6:
 			pkb();
 			break;
-			
 			case 7:
 			phr();
 			break;
-			
 			case 8:
 			pht();
 			break;
-			
 			case 9:
-			hasil_akhir();
-			break;
-				
-			case 10:
 				printf("Thank You");
 				exit=1;
 			break;
-			
 			default:
 	            printf("\nEnter 1 to 9 only\n\n");
 	            system("pause");
@@ -212,10 +198,10 @@ void ppnbm(){
 
 
 void sepuluh(){
-		int peng;
+	int peng;
 	int total;
 	int pajakpnbm;
-	char pajakpnbm[50];
+	char ppengnbm[50];
 	
 	printf("Masukan pengeluaran : ");
 	scanf("%d", &peng);
@@ -311,14 +297,14 @@ void tigalima(){
 
 void phr(){
 	int peng;
-	char phr[50];
+	char photelr[50];
 	
 	printf("Menghitung PPn\n\n\n");
 	printf("Pajak Hotel dan Restauran adalah Pajak yang dibayar 10 persen dari pengeluaran\n");
 	printf("Masukan pengeluaran : ");
 	scanf("%d", &peng);
 	peng = peng*0.1+peng;
-	gets(phr);
+	gets(photelr);
 
 	printf("\nBayar Pajak Hotel dan Restaurant : %d\n", peng);
 	system("pause");
@@ -334,7 +320,7 @@ void pbb(){
 	int njop;
 	int njkp;
 	int pajakbb;
-	char pbb[50];
+	char pbumib[50];
 	
 	printf("Menghitung PBB\n\n\n");
 
@@ -350,7 +336,7 @@ void pbb(){
 	njop = (bangunan*nilai_bangunan)+(tanah*nilai_tanah);
 	njkp = 0.2*njop;
 	pajakbb = 0.005*njkp;
-	gets(pbb);
+	gets(pbumib);
 
 	
 	printf("Pajak yang dibayarkan : %d", pajakbb);
@@ -358,4 +344,87 @@ void pbb(){
 	system("pause");
 	system("cls");
 	return;
+}
+
+int pkb(){
+	
+	int jumlah,harga_jual,p1,p2,p3,p4,njk,jum_kend;
+	
+	p1 = 0.015;
+	p2 = 0.02;
+	p3 = 0.025;
+	p4 = 0.04;
+	 
+	printf("Jumlah Kendaraan :");
+	scanf("%d", jum_kend);
+	
+	harga_jual = 500000;
+	njk = 500000 *2/3 * 100;
+	
+	if(jum_kend>4){
+		printf("PKB kendaraan pertama :Rp.\td\n", njk*p1);
+		printf("PKB kendaraan kedua : Rp.\t%d\n", njk*p2);
+		printf("PKB kendaraan ketiga : Rp.\t%d\n", njk*p3);
+		printf("PKB kendaraan keempat : Rp.\t%d\n", njk*p4);
+	if(jum_kend==3){
+		printf("PKB kendaraan pertama :Rp.\td\n", njk*p1);
+		printf("PKB kendaraan kedua : Rp.\t%d\n", njk*p2);
+		printf("PKB kendaraan ketiga : Rp.\t%d\n", njk*p3);
+		
+	}
+	if(jum_kend==2){
+		printf("PKB kendaraan pertama :Rp.\td\n", njk*p1);
+		printf("PKB kendaraan kedua : Rp.\t%d\n", njk*p2);
+	}
+	else{
+		printf("PKB kendaraan :Rp.\td\n", njk*p1);
+	}}
+}
+
+int pph(){
+	int tahunan,ptkp,ptkp1,ptkp2,ptkp3,gaji,istri,bersih,anak;
+	ptkp1 = 54000000;
+	ptkp2 = 4500000;
+	ptkp3 = 4500000;
+	printf("\nMasukan gaji : ");
+	scanf("%d", gaji);
+	tahunan = gaji *12;
+	printf("\nApakah sudah menikah (YES/NO) :");
+	scanf("%d", istri);
+	printf("\nApakah mempunyai anak : ");
+	scanf("%d", anak);
+	if(istri = "Yes"){
+		bersih = tahunan - ptkp1 - ptkp2;
+	if(istri = "Yes" && anak == 1){
+		bersih = tahunan - ptkp1 - ptkp2 -ptkp3;
+	}
+	if(istri = "Yes" && anak == 2){
+	bersih = tahunan - ptkp1 - ptkp2 -(ptkp3*2);
+	}
+	if(istri = "Yes" && anak > 3){
+		bersih = tahunan - ptkp1 - ptkp2 -(ptkp3*3);
+}}
+	
+	printf("Gaji tahunan anda : Rp.\t%d\n", tahunan);
+	printf("Gaji bersih anda : Rp.\t%d\n", bersih);
+	
+	if(tahunan>500000000){
+		printf("PPH anda : Rp.\t%d\n", bersih*0.5);
+	if(250000000<tahunan<500000000){
+		printf("PPH anda : Rp.\t%d\n",bersih *0.25);
+	}
+	if(50000000<tahunan<250000000){
+	printf("PPH anda : Rp.\t%d\n",bersih *0.15);
+	}
+	if(50000000>tahunan){
+	printf("PPH anda : Rp.\t%d\n",bersih *0.05);
+	}}
+}
+
+int pht(){
+	int nominal;
+	
+	printf("Berapakah harga penginapan dalam 1 tahun terakhir?\n");
+	scanf("%d", &nominal);
+	printf("PHT yang harus dibayarkan : Rp.\t%d\n", nominal*1.1);
 }
