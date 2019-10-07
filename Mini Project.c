@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <windows.h>
+#include "Rumus.h"
 
 void data_diri();
 int pph();
@@ -104,6 +105,7 @@ void data_diri(){
 	
 	printf("Masukan data diri untuk menghitung pajak perseorangan\n\n\n\n");
 	printf("\nNama Lengkap : ");
+	scanf("%s");
 	gets(nama);
 	printf("\nJenis Kelamin : ");
 	gets(gender);
@@ -131,9 +133,6 @@ system("cls");
 return;
 }
 
-void gaji_tahun(int gaji){
-	return gaji*12;
-}
 
 void ppn(){
 	int peng;
@@ -197,103 +196,7 @@ void ppnbm(){
 }
 
 
-void sepuluh(){
-	int peng;
-	int total;
-	int pajakpnbm;
-	char ppengnbm[50];
-	
-	printf("Masukan pengeluaran : ");
-	scanf("%d", &peng);
-	if(peng>5000000){
-		pajakpnbm= peng-peng*0.1;
-		
-	}
-	else{
-		peng=0;
-		}
-	
-	
-	total = peng+pajakpnbm;
-	gets(ppengnbm);
-	
-	printf("\nBayar PPn : %d\n", peng);
-	system("pause");
-	system("cls");
-	return;
-}
 
-void duapuluh(){
-	int peng;
-	int total;
-	int pajakpnbm;
-	char ppengnbm[50];
-
-	printf("Masukan pengeluaran : ");
-	scanf("%d", &peng);
-	if(peng>5000000){
-		pajakpnbm = 0.1*(peng-(peng*0.2));
-	}
-	else{
-		peng=0;
-		}
-	
-	total = peng+pajakpnbm;
-	gets(ppengnbm);
-	
-	printf("\nBayar PPn+PPnBm : %d\n", total);
-	system("pause");
-	system("cls");
-	return;
-}
-
-void dualima(){
-		int peng;
-	int total;
-	int pajakpnbm;
-	char ppengnbm[50];
-
-	printf("Masukan pengeluaran : ");
-	scanf("%d", &peng);
-	if(peng>5000000){
-		pajakpnbm = 0.1*(peng-(peng*0.25));
-	}
-	else{
-		peng=0;
-		}
-	
-	total = peng+pajakpnbm;
-	gets(ppengnbm);
-	
-	printf("\nBayar PPn+PPnBm : %d\n", total);
-	system("pause");
-	system("cls");
-	return;
-}
-
-void tigalima(){
-		int peng;
-	int total;
-	int pajakpnbm;
-	char ppengnbm[50];
-
-	printf("Masukan pengeluaran : ");
-	scanf("%d", &peng);
-	if(peng>5000000){
-		pajakpnbm = 0.1*(peng-(peng*0.35));
-	}
-	else{
-		peng=0;
-		}
-	
-	total = peng+pajakpnbm;
-	gets(ppengnbm);
-	
-	printf("\nBayar PPn+PPnBm : %d\n", total);
-	system("pause");
-	system("cls");
-	return;
-}
 
 void phr(){
 	int peng;
@@ -348,78 +251,95 @@ void pbb(){
 
 int pkb(){
 	
-	int jumlah,harga_jual,p1,p2,p3,p4,njk,jum_kend;
+	int jum_kend,njk;
 	
-	p1 = 0.015;
-	p2 = 0.02;
-	p3 = 0.025;
-	p4 = 0.04;
-	 
-	printf("Jumlah Kendaraan :");
-	scanf("%d", jum_kend);
+	float p1 = 0.015;
+	float p2 = 0.02;
+	float p3 = 0.025;
+	float p4 = 0.04;
 	
-	harga_jual = 500000;
+	printf("Jumlah kendaraan : ");
+	scanf("%d", &jum_kend);
 	njk = 500000 *2/3 * 100;
+	printf("Nilai jual kendaraan : %d\n", njk);
+	int j1 = njk * p1;
+	int j2 = njk * p2;
+	int j3 = njk * p3;
+	int j4 = njk * p4;
 	
-	if(jum_kend>4){
-		printf("PKB kendaraan pertama :Rp.\td\n", njk*p1);
-		printf("PKB kendaraan kedua : Rp.\t%d\n", njk*p2);
-		printf("PKB kendaraan ketiga : Rp.\t%d\n", njk*p3);
-		printf("PKB kendaraan keempat : Rp.\t%d\n", njk*p4);
-	if(jum_kend==3){
-		printf("PKB kendaraan pertama :Rp.\td\n", njk*p1);
-		printf("PKB kendaraan kedua : Rp.\t%d\n", njk*p2);
-		printf("PKB kendaraan ketiga : Rp.\t%d\n", njk*p3);
-		
+	if(jum_kend==1){
+		printf("PKB kendaraan :Rp.\t%d\n", j1);
 	}
-	if(jum_kend==2){
-		printf("PKB kendaraan pertama :Rp.\td\n", njk*p1);
-		printf("PKB kendaraan kedua : Rp.\t%d\n", njk*p2);
+		if(jum_kend==2){
+		printf("PKB kendaraan pertama :Rp.\t%d\n", j1);
+		printf("PKB kendaraan kedua : Rp.\t%d\n", j2);
 	}
-	else{
-		printf("PKB kendaraan :Rp.\td\n", njk*p1);
-	}}
+		if(jum_kend==3){
+		printf("PKB kendaraan pertama :Rp.\t%d\n", j1);
+		printf("PKB kendaraan kedua : Rp.\t%d\n", j2);
+		printf("PKB kendaraan ketiga : Rp.\t%d\n", j3);
+	}
+	if(jum_kend>=4){
+		printf("PKB kendaraan pertama :Rp.\t%d\n", j1);
+		printf("PKB kendaraan kedua : Rp.\t%d\n", j2);
+		printf("PKB kendaraan ketiga : Rp.\t%d\n", j3);
+		printf("PKB kendaraan keempat : Rp.\t%d\n", j4);
+
+}
+system("pause");
+system("cls");
+return;
 }
 
 int pph(){
-	int tahunan,ptkp,ptkp1,ptkp2,ptkp3,gaji,istri,bersih,anak;
+	int tahunan,ptkp1,ptkp2,ptkp3,gaji,bersih;
+	char istri,anak;
 	ptkp1 = 54000000;
 	ptkp2 = 4500000;
 	ptkp3 = 4500000;
-	printf("\nMasukan gaji : ");
-	scanf("%d", gaji);
-	tahunan = gaji *12;
-	printf("\nApakah sudah menikah (YES/NO) :");
-	scanf("%d", istri);
-	printf("\nApakah mempunyai anak : ");
-	scanf("%d", anak);
-	if(istri = "Yes"){
-		bersih = tahunan - ptkp1 - ptkp2;
-	if(istri = "Yes" && anak == 1){
-		bersih = tahunan - ptkp1 - ptkp2 -ptkp3;
-	}
-	if(istri = "Yes" && anak == 2){
-	bersih = tahunan - ptkp1 - ptkp2 -(ptkp3*2);
-	}
-	if(istri = "Yes" && anak > 3){
-		bersih = tahunan - ptkp1 - ptkp2 -(ptkp3*3);
-}}
 	
+	printf("Berapakah gaji perbulan anda?\n");
+	scanf("%d", &gaji);
+	printf("apakah anda sudah menikah?(Yes/No)\n");
+	scanf("%s", &istri);
+	printf("Berapakah jumlah anak anda?\n");
+	scanf("%d", &anak);
+	tahunan = gaji*12;
+
+	if(istri == "Yes" && anak == 1){
+		bersih = (ptkp1 + ptkp2 + ptkp3)-tahunan;
+	if(istri == "Yes" && anak == 2){
+	bersih = (ptkp1 - ptkp2 -(ptkp3*2))-tahunan;
+	}
+	if(istri =="Yes" && anak > 3){
+		bersih = (ptkp1 - ptkp2 -(ptkp3*3))-tahunan;
+	if(istri == "No"){
+		bersih = (ptkp1 - ptkp2)-tahunan;}}}
+	
+	
+	
+	int f1 = bersih * 0.05;
+	int f2 = bersih * 0.15;
+	int f3 = bersih * 0.25;
+	int f4 = bersih * 0.5; 
+	if(50000000>tahunan){
+	printf("PPH anda : Rp.\t%d\n",f1);
+	if(50000000<tahunan<250000000){
+	printf("PPH anda : Rp.\t%d\n",f2);
+	if(250000000<tahunan<500000000){
+	printf("PPH anda : Rp.\t%d\n",f3);
+	if(tahunan>500000000){
+	printf("PPH anda : Rp.\t%d\n",f4);
+	}}}}
 	printf("Gaji tahunan anda : Rp.\t%d\n", tahunan);
 	printf("Gaji bersih anda : Rp.\t%d\n", bersih);
 	
-	if(tahunan>500000000){
-		printf("PPH anda : Rp.\t%d\n", bersih*0.5);
-	if(250000000<tahunan<500000000){
-		printf("PPH anda : Rp.\t%d\n",bersih *0.25);
-	}
-	if(50000000<tahunan<250000000){
-	printf("PPH anda : Rp.\t%d\n",bersih *0.15);
-	}
-	if(50000000>tahunan){
-	printf("PPH anda : Rp.\t%d\n",bersih *0.05);
-	}}
+	system("pause");
+	system("cls");
+	return;
 }
+
+
 
 int pht(){
 	int nominal;
@@ -427,4 +347,7 @@ int pht(){
 	printf("Berapakah harga penginapan dalam 1 tahun terakhir?\n");
 	scanf("%d", &nominal);
 	printf("PHT yang harus dibayarkan : Rp.\t%d\n", nominal*1.1);
+	system("pause");
+	system("cls");
+	return;
 }
